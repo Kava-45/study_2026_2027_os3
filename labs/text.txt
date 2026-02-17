@@ -1,0 +1,184 @@
+---
+## Front matter
+title: "Первоначальная настройка git"
+subtitle: "Лабораторная работа №2"
+author: "Казначеев Сергей Ильич"
+
+## Generic otions
+lang: ru-RU
+toc-title: "Содержание"
+
+## Bibliography
+bibliography: bib/cite.bib
+csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
+
+## Pdf output format
+toc: true # Table of contents
+toc-depth: 2
+lof: true # List of figures
+lot: true # List of tables
+fontsize: 12pt
+linestretch: 1.5
+papersize: a4
+documentclass: scrreprt
+## I18n polyglossia
+polyglossia-lang:
+  name: russian
+  options:
+	- spelling=modern
+	- babelshorthands=true
+polyglossia-otherlangs:
+  name: english
+## I18n babel
+babel-lang: russian
+babel-otherlangs: english
+## Fonts
+mainfont: IBM Plex Serif
+romanfont: IBM Plex Serif
+sansfont: IBM Plex Sans
+monofont: IBM Plex Mono
+mathfont: STIX Two Math
+mainfontoptions: Ligatures=Common,Ligatures=TeX,Scale=0.94
+romanfontoptions: Ligatures=Common,Ligatures=TeX,Scale=0.94
+sansfontoptions: Ligatures=Common,Ligatures=TeX,Scale=MatchLowercase,Scale=0.94
+monofontoptions: Scale=MatchLowercase,Scale=0.94,FakeStretch=0.9
+mathfontoptions:
+## Biblatex
+biblatex: true
+biblio-style: "gost-numeric"
+biblatexoptions:
+  - parentracker=true
+  - backend=biber
+  - hyperref=auto
+  - language=auto
+  - autolang=other*
+  - citestyle=gost-numeric
+## Pandoc-crossref LaTeX customization
+figureTitle: "Рис."
+tableTitle: "Таблица"
+listingTitle: "Листинг"
+lofTitle: "Список иллюстраций"
+lotTitle: "Список таблиц"
+lolTitle: "Листинги"
+## Misc options
+indent: true
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{float} # keep figures where there are in the text
+  - \floatplacement{figure}{H} # keep figures where there are in the text
+---
+
+# Цель
+
+Изучить идеологию и применение средств контроля версий.
+Освоить умения по работе с git.
+
+# Задачи
+
+Создать базовую конфигурацию для работы с git.
+Создать ключ SSH.Создать ключ PGP.
+Настроить подписи git.
+Зарегистрироваться на Github.
+Создать локальный каталог для выполнения заданий по предмету.
+
+
+Для начала установим Git (рис. [-@fig:001])
+
+![sc1](image/screen1.jpg)
+
+Теперь установим gh (рис. [-@fig:002])
+
+![sc2](image/screen2.jpg)
+
+Далее задаем имя владельца репозитория  (рис. [-@fig:023])
+
+![sc3](image/screen3.jpg)
+
+Далее задаем почту владельца git (рис. [-@fig:022])
+
+![sc_3](image/screen3.jpg)
+
+Далее настроим котировку UTF-8 в выводе сообщения git (рис. [-@fig:003])
+
+![sc_3_1](image/screen3.jpg)
+
+Зададим имя начальной ветки настроим параметры autocrlf и safecrlf (рис. [-@fig:004])
+
+![sc4](image/screen4.jpg)
+
+Создадим ключ RSA размером 4096 бит (рис. [-@fig:005])
+
+![sc5](image/screen5.jpg)
+
+Теперь создаем ключ по алгоритму ed22519 (рис. [-@fig:006])
+
+![sc6](image/screen6.jpg)
+
+Теперь создаем gpg, выбираем из предложенных вариантов первый тим(тип RSA and RSA),размер 4096 бит  и делаем срок ключа неограниченным (рис. [-@fig:007])
+
+![sc7](image/screen7.jpg)
+
+После нас просят ввести свои данные. Мы вводим имя и адрес электронной почты. После этого соглашаемся с генерацией ключа (рис. [-@fig:008])
+
+![sc8](image/screen8.jpg)
+
+Далее выводим список ключей gpg (рис. [-@fig:009])
+
+![sc9](image/screen9.jpg)
+
+Копируем наш ключ в буфер обмена (рис. [-@fig:010])
+
+![sc10](image/screen10.jpg)
+
+Вставляем ключ на Github и задаем ему имя (рис. [-@fig:011])
+
+![sc11](image/screen11.jpg)
+
+Теперь произведем автоматическую настройку подписей (рис. [-@fig:012])
+
+![sc12](image/screen12.jpg)
+
+
+После нам нужно авторизироватся в  github с помощью gh. Мы выбираем сайт для авторизации(Github),после выбираем 
+предпочитаемый протокол (SSH), публичный ключ SSH ключ (id_rsa.pub) и имя для ключа sway. В качестве способа авторизации выбираем авторизацию через браузер (рис. [-@fig:013])
+
+![sc13](image/screen13.jpg)
+
+Теперь создаем рабочую директорию курса и переходим в неё(рис. [-@fig:014])
+
+![sc14](image/screen14.jpg)
+
+Создаем репозиторий для лабораторных работ из шаблона (рис. [-@fig:015])
+
+![sc15](image/screen15.jpg)
+
+И клонируем его к себе на компьютер (рис. [-@fig:016])
+
+![sc16](image/screen16.jpg)
+
+
+Переходим в него с помощью cd и удаляем файл(package.json) и создаем необходимые каталоги записав в файл COURSE
+строку echo os-intro и прописываем make prepare для того, чтобы нужные нам каталоги создались (рис. [-@fig:017])
+
+![sc17](image/screen17.jpg)
+
+Теперь добавляем нашу папку для отправки (рис. [-@fig:018])
+
+![sc18](image/screen18.jpg)
+
+Делаем коммит в котором указываем что мы сделали структуру курса (рис. [-@fig:019])
+
+![sc19](image/screen19.jpg)
+
+И отправляем файлы на Github с помощью команды push (рис. [-@fig:020])
+
+![sc20](image/screen20.jpg) 
+
+# Выводы
+
+Я изучил идеологию и применение средств контроля версий и освоил умения по работе с git 
+
+# Список литературы{.unnumbered}
+
+::: {#refs}
+:::
